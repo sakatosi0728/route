@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show]
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :search]
   
   def index
     @rooms = Room.includes(:user).order("created_at DESC")
@@ -22,6 +22,10 @@ class RoomsController < ApplicationController
   def show
     @message = Message.new
     @messages = @room.messages.includes(:user)
+  end
+
+  def search
+    @rooms = Room.search(params[:keyword])
   end
 
   private
