@@ -7,9 +7,11 @@
           <li>
             <%= link_to '詳細', room_path(room.id), method: :get %>
           </li>
+          <% if user_signed_in? && current_user.id == room.user_id %>
           <li>
             <%= link_to '削除', room_path(room.id), method: :delete %>
           </li>
+          <% end %>
         </ul>
       </div>
       <p><%= room.text %></p>
