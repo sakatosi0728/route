@@ -1,24 +1,63 @@
-# README
+アプリケーション名
+Daretoku
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+概要
+ルームを作成し日常生活などで役立つ知識を共有することができる
 
-Things you may want to cover:
+URL
+https://daretoku.herokuapp.com/
 
-* Ruby version
+テスト用アカウント1
+email:opener@opener.com
+パスワード:opener
 
-* System dependencies
+テスト用アカウント2
+email:talker@talker.com
+パスワード:talker
 
-* Configuration
+利用方法
+テスト用アカウントでログイン後、作成ボタンからルームを作成し詳細画面に入りメッセージを送ることができる。
+また作成者のみルームの削除も可能。
 
-* Database creation
+目指した課題解決
+大学生や新社会人など初めて一人暮らしをする人に役立つ情報や知識を共有することができ、困っていることもルームを開くことで相談し解決に役立てるようにする
 
-* Database initialization
 
-* How to run the test suite
+# テーブル設計
 
-* Services (job queues, cache servers, search engines, etc.)
+## users テーブル
 
-* Deployment instructions
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| nickname | string | null: false |
+| email    | string | null: false |
+| password | string | null: false |
 
-* ...
+### Association
+- has_many :rooms
+- has_many :messages
+
+## rooms テーブル
+
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| text   | string | null: false | 
+| image  | text   | null: false | 
+| user   | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- has_many :messages
+
+## messages テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| text    | string     |
+| user_id | references | null: false, foreign_key: true |
+| room_id | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :room
+- belongs_to :user
