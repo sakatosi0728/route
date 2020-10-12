@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   
   def index
-    @rooms = Room.includes(:user)
+    @rooms = Room.includes(:user).order("created_at DESC")
   end
 
   def new
