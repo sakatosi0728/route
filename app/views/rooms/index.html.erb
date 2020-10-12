@@ -1,6 +1,14 @@
 <div class="contents row">
   <% @rooms.each do |room| %>
     <div class="content_post" style="background-image: url(<%= room.image %>);">
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <li>
+            <%= link_to '削除', room_path(room.id), method: :delete %>
+          </li>
+        </ul>
+      </div>
       <p><%= room.text %></p>
       <span class="name">
         <%= room.name %>
