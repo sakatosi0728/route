@@ -6,5 +6,9 @@ class User < ApplicationRecord
   has_many :rooms
   has_many :messages
 
-  validates :nickname, presence: true, length: { maximum: 6 }
+  with_options presence: true do 
+    validates :nickname, length: { maximum: 6 }
+    validates :email, format: { with: /\A\S+@\S+\.\S+\z/}, uniqueness: true
+  end
+  
 end
