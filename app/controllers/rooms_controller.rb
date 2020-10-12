@@ -11,7 +11,13 @@ class RoomsController < ApplicationController
   end
 
   def create
-    Room.create(room_params)
+    @room = Room.create(room_params)
+    if @room.valid?
+      @room.save
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   def destroy
