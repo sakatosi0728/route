@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :rooms
   has_many :messages
+
+  validates :nickname, presence: true, length: { maximum: 6 }
 end
