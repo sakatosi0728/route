@@ -20,4 +20,25 @@
       </a>
     </span>
   </div>
+  <div class="container">
+    <div class="messages">
+      <h4>＜メッセージ一覧＞</h4>
+      <% if @messages %>
+        <% @messages.each do |message| %>
+          <p>
+            <strong><%= link_to message.user.nickname, "/users/#{message.user_id}" %>：</strong>
+            <%= message.text %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+    <% if current_user %>
+      <%= form_with(model: [@room, @message], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "メッセージを送る", rows: "2" %>
+        <%= form.submit "送信" %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ メッセージの送信には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+  </div>
 </div>
