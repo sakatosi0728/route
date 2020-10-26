@@ -20,6 +20,13 @@ email:talker@talker.com
 また作成者のみルームの削除も可能。
 ルームを作成する場合のイメージ画像はインターネット上にある画像の詳細なURLを記載してください。
 （いらすとやさんの画像の使用をおすすめします）
+以下、動作GIF
+・https://gyazo.com/d87addab050f0f0d8b4668b554666177
+・https://gyazo.com/ec76403d8d58d10c1e36c6e1f9cdd5fd
+・https://gyazo.com/4fca51ed48e7c8e2be237a0ac379689f
+・https://gyazo.com/73a805f1944103c27eb73415f3d8b00a
+・https://gyazo.com/53e7dfdec7668caffe1aeb4d131c5e20
+
 
 目指した課題解決
 大学生や新社会人など初めて一人暮らしをする人に役立つ情報や知識を共有することができ、困っていることもルームを開くことで相談し解決に役立てるようにする.
